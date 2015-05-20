@@ -23,6 +23,9 @@ class Guessing_game
     if @previous_guesses.include?(guess)
       puts "It's still not #{guess} since last time you guessed that. Give me a new number."
       evaluate_guess
+    elsif (guess < 1) || (guess > 100)
+      puts "I need a number 1-100. Try again."
+      evaluate_guess
     elsif (@guesses_left == 1) && (guess != @number)
       puts "You're out of guesses! It was #{@number}!"
       play_again?
@@ -41,16 +44,12 @@ class Guessing_game
     elsif guess == @number
       puts "You got it! Isn't that the most exciting thing ever!?"
       play_again?
-    else
-      "I need a number."
-      evaluate_guess
     end
   end
 
   def ask_for_guess
     puts "You have #{@guesses_left} guess left. Try again."
   end
-
 
   def play_again?
     puts "Would you like to play again? (yes or no)"
