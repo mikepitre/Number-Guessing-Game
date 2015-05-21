@@ -32,13 +32,13 @@ class Guessing_game
     elsif guess < @number
       @guesses_left -= 1
       @previous_guesses << guess
-      puts "Too Low!"
+      puts "#{guess} is too Low!"
       ask_for_guess
       evaluate_guess
     elsif guess > @number
       @guesses_left -= 1
       @previous_guesses << guess
-      puts "Too High!"
+      puts "#{guess} is too High!"
       ask_for_guess
       evaluate_guess
     elsif guess == @number
@@ -48,7 +48,7 @@ class Guessing_game
   end
 
   def ask_for_guess
-    puts "You have #{@guesses_left} guess left. Try again."
+    puts "You have #{@guesses_left} guesses left. Try again."
   end
 
   def play_again?
